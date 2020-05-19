@@ -91,7 +91,7 @@ void GuillotineBinPack::Insert(std::vector<RectSize> &rects, bool merge,
           break;
         }
         // Try if we can fit the rectangle upright.
-        else if (binAllowFlip && rects[j].width <= freeRectangles[i].width &&
+        else if (rects[j].width <= freeRectangles[i].width &&
                  rects[j].height <= freeRectangles[i].height) {
           int score = ScoreByHeuristic(rects[j].width, rects[j].height,
                                        freeRectangles[i], rectChoice);
@@ -103,7 +103,7 @@ void GuillotineBinPack::Insert(std::vector<RectSize> &rects, bool merge,
           }
         }
         // If not, then perhaps flipping sideways will make it fit?
-        else if (rects[j].height <= freeRectangles[i].width &&
+        else if (binAllowFlip && rects[j].height <= freeRectangles[i].width &&
                  rects[j].width <= freeRectangles[i].height) {
           int score = ScoreByHeuristic(rects[j].height, rects[j].width,
                                        freeRectangles[i], rectChoice);
@@ -502,7 +502,7 @@ Rect GuillotineBinPack::FindPositionForNewNode(
       }
     }
     // Does the rectangle fit sideways?
-    else if (height <= freeRectangles[i].width &&
+    else if (binAllowFlip && height <= freeRectangles[i].width &&
              width <= freeRectangles[i].height) {
       int score =
           ScoreByHeuristic(height, width, freeRectangles[i], rectChoice);

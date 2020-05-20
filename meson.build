@@ -1,8 +1,8 @@
 project('RectangleBinPack', 'cpp')
 
-RectangleBinPack = static_library(
+RectangleBinPack = library(
     'RectangleBinPack',
-
+    cpp_args: '-DNOMINMAX',
     sources : [
         'GuillotineBinPack.cpp',
         'MaxRectsBinPack.cpp',

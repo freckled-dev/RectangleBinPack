@@ -6,13 +6,13 @@
 
         This work is released to Public Domain, do whatever you want with it.
 */
-#include <iostream>
-#include <limits>
-#include <utility>
-
+#include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <cstring>
+#include <iostream>
+#include <limits>
+#include <utility>
 
 #include "GuillotineBinPack.h"
 
